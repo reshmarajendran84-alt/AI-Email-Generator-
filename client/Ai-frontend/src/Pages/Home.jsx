@@ -1,7 +1,7 @@
 function Home(){
 return (
     <>
-    <h2>Emailcard</h2>
+    <h2>Home</h2>
     </>
 )
 }

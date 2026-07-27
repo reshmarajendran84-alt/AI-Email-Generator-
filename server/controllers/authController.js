@@ -3,7 +3,7 @@ import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
 
-export const  loginUser=async(req, res,next) =>{
+export const loginUser = async (req, res, next) => {
     try {
         const { email, password } = req.body;
 
@@ -20,40 +20,43 @@ export const  loginUser=async(req, res,next) =>{
                 message: "User not found"
             });
         }
-        const isMatch = await bcrypt.compare(password, user.password);
-res.json({
-    success:true,
-    email
-});
 
-if (!isMatch) {
-    return res.status(401).json({
-        message: "Invalid password"
-    });
-}
-const token =jwt.sign(
-            {id:user_id,
+        const isMatch = await bcrypt.compare(password, user.password);
+
+        if (!isMatch) {
+            return res.status(401).json({
+                message: "Invalid password"
+            });
+        }
+
+        const token = jwt.sign(
+            {
+                id: user._id,
                 email: user.email
             },
             process.env.JWT_SECRET,
             {
-                expiresIn:"7d"
+                expiresIn: "7d"
             }
         );
 
+        const userResponse = {
+            id: user._id,
+            username: user.username,
+            email: user.email
+        };
+
         res.status(200).json({
+            success: true,
             message: "Login successful",
             token,
-            user
+            user: userResponse
         });
 
-        
     } catch (error) {
-               next(error);
-
+        next(error);
     }
 };
-
 
 export const registerUser = async (req, res,next) => {
     try {

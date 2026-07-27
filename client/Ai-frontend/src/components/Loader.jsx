@@ -1,7 +1,7 @@
 function Loader(){
 return (
     <>
-    <h2>Emailcard</h2>
+    <h2>loaded</h2>
     </>
 )
 }

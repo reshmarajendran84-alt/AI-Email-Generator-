@@ -7,7 +7,9 @@ import Dashboard from "./Pages/Dashboard";
 import Navbar from "./components/Navbar";
 import Loader from "./components/Loader";
 import Footer from "./components/Footer";
-
+import ProtectedRoute from "./components/ProtectedRoute";
+import  History from "./Pages/History";
+import Logout from "./Pages/Logout";
 function App(){
 return (
     <>
@@ -16,12 +18,22 @@ return (
         <Route path="/" element={<Home/>}/>
         <Route path="/register" element ={<Register/>}/>
         <Route path="/login" element ={<Login/>}/>
-        <Route path ="/history" element ={<History/>}/>
-        <Route path ="/generateEMail" element={<GenerateEmail/>}/>
-        <Route path ="/dashboard" element={<Dashboard/>}/>
+        <Route path ="/history" element ={<ProtectedRoute>
+         <History/> 
+           </ProtectedRoute>}/>
+        <Route path ="/generate" element={<ProtectedRoute>
+           
+           <GenerateEmail/>
+            </ProtectedRoute>}/>
+        <Route path ="/dashboard" 
+        element={
+        <ProtectedRoute>
+            <Dashboard/>
+        </ProtectedRoute>
+    }/>
         <Route path ="/loader" element={<Loader/>}/>
         <Route path="/footer" element ={<Footer/>}/>
-
+<Route path="/logout" element={<Logout/>}/>
     </Routes>
     </>
     

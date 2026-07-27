@@ -1,7 +1,7 @@
 function Footer(){
 return (
     <>
-    <h2>Emailcard</h2>
+    <h2>footer</h2>
     </>
 )
 }

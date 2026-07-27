@@ -4,7 +4,7 @@ import authMiddleware from "../middleware/authMiddleware.js";
 
 const router = express.Router();
 
-router.post("/generate-email",authMiddleware,generateEmailController);
+router.post("/generate-email", authMiddleware, generateEmailController);
 router.get("/history",authMiddleware,getEmailHistory);
 router.delete("/:id",authMiddleware,deleteEmail);
 router.put("/:id",authMiddleware,updateEmail);
