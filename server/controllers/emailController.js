@@ -1,5 +1,5 @@
 import Email from "../models/Email.js";
-import generateEmail from "../services/aiService.js";
+import aiService from "../services/aiService.js";
 
 export const generateEmailController = async (req, res, next) => {
     try {
@@ -7,11 +7,11 @@ export const generateEmailController = async (req, res, next) => {
 
         if (!topic) {
             return res.status(400).json({
-                message: "Topic is required"
+                message: "Topic is required",
             });
         }
 
-        const generatedEmail = await generateEmail(topic);
+        const generatedEmail = await aiService(topic);
 
         const email = await Email.create({
             user: req.user.id,
@@ -25,7 +25,7 @@ export const generateEmailController = async (req, res, next) => {
         });
 
     } catch (error) {
-        next(error);
+        next(error); 
     }
 };
 export const getEmailHistory = async (req, res, next) => {

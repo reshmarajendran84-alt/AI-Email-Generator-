@@ -4,7 +4,7 @@ const ai = new GoogleGenAI({
     apiKey: process.env.GEMINI_API_KEY,
 });
 
-const generateEmail = async (topic) => {
+const aiService = async (topic) => {
     const prompt = `
 Write a professional email about "${topic}".
 
@@ -20,7 +20,7 @@ Make the email clear, polite, and professional.
     const models = [
         "gemini-3.5-flash",
         "gemini-3.1-flash-lite",
-        "gemini-2.0-flash"
+        "gemini-2.0-flash",
     ];
 
     let lastError;
@@ -37,11 +37,11 @@ Make the email clear, polite, and professional.
         } catch (error) {
             lastError = error;
 
-            console.log(`${model} failed:`, error.status);
+            console.log(`${model} failed:`, error);
         }
     }
 
     throw lastError;
 };
 
-export default generateEmail;
+export default aiService;
