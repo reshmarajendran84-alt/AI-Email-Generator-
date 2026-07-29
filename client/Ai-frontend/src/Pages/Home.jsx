@@ -70,23 +70,24 @@ function Home() {
 
                                         <div>
                                             <p className="text-sm font-semibold text-gray-900">
-                                                Email topic
+                                                Email 
                                             </p>
+                                            
 
-                                            <p className="text-xs text-gray-400">
+                                            {/* <p className="text-xs text-gray-400">
                                                 Tell AI what you need
-                                            </p>
+                                            </p> */}
                                         </div>
                                     </div>
 
-                                    <div className="mt-5 rounded-xl border border-gray-200 bg-gray-50 p-4 text-sm text-gray-500">
+                                    {/* <div className="mt-5 rounded-xl border border-gray-200 bg-gray-50 p-4 text-sm text-gray-500">
                                         Follow-up email after my job interview
                                     </div>
 
                                     <button className="mt-4 flex w-full items-center justify-center gap-2 rounded-xl bg-indigo-600 py-3 text-sm font-semibold text-white">
                                         <Sparkles size={16} />
                                         Generate Email
-                                    </button>
+                                    </button> */}
                                 </div>
 
                                 <div className="rounded-xl border border-gray-200 bg-white p-5">
